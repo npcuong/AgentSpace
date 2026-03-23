@@ -1,4 +1,4 @@
-# AEO Platform Checklist
+# AgentSpace AEO Scanner Checklist
 
 ## Development Checklist
 

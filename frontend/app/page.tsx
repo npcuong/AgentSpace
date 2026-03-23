@@ -253,7 +253,7 @@ export default function Home() {
                 100% Open Source
               </h3>
               <p className="text-sm mb-6" style={{ color: "var(--color-text-muted)" }}>
-                AEO Platform is MIT-licensed. Star us on GitHub, contribute, or self-host your own instance.
+                AgentSpace AEO Scanner is MIT-licensed. Star us on GitHub, contribute, or self-host your own instance.
               </p>
               <a
                 href="https://github.com/aeo-platform"
@@ -284,7 +284,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8 px-4 text-center" style={{ borderTop: "1px solid var(--color-border)" }}>
         <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
-          AEO Platform — Agent Engine Optimization. MIT License.
+          AEO Scanner by AgentSpace — Agent Engine Optimization. MIT License.
         </p>
       </footer>
     </div>

@@ -1,4 +1,4 @@
-# AEO Platform
+# AgentSpace — AEO Scanner
 
 > **Agent Engine Optimization** — Make any website agent-ready.
 
@@ -8,7 +8,7 @@ Generate `llms.txt`, `agents.txt`, and get your AEO score for any website. Free 
 
 Just like SEO optimizes websites for search engines, **AEO (Agent Engine Optimization)** optimizes websites for AI agents. As AI agents become the primary consumers of web content, websites need to be machine-readable, not just human-readable.
 
-AEO Platform helps you:
+AgentSpace AEO helps you:
 - **Generate `llms.txt`** — A file that helps LLMs understand your site structure and content
 - **Generate `agents.txt`** — Declare what AI agents can do on your site (permissions, APIs, capabilities)
 - **Score your website (0-100)** — Measure agent-readiness across 4 key dimensions

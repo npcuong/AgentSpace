@@ -1,4 +1,4 @@
-# AEO Platform Architecture
+# AgentSpace Architecture
 
 ## System Overview
 

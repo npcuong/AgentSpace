@@ -1,4 +1,4 @@
-# AEO Platform Features
+# AgentSpace AEO Scanner Features
 
 ## Core Features
 

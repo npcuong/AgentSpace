@@ -24,7 +24,10 @@ export default function Header() {
             className="text-lg font-semibold tracking-tight"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            AEO
+            AgentSpace
+          </span>
+          <span className="hidden sm:inline-block text-xs font-semibold ml-2 px-2 py-0.5 rounded-md" style={{ background: "rgba(59, 130, 246, 0.1)", color: "var(--color-primary)", border: "1px solid rgba(59, 130, 246, 0.2)" }}>
+            AEO Scanner
           </span>
         </a>
 
