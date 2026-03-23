@@ -90,8 +90,8 @@ export default function FilePreview({ filename, content }: FilePreviewProps) {
           <div
             className="pr-4 mr-4 text-right select-none flex-shrink-0"
             style={{
-              color: "var(--color-border)",
-              borderRight: "1px solid var(--color-border)",
+              color: "#475569", // Always muted dark
+              borderRight: "1px solid #334155", // Always dark border
               minWidth: "3rem",
             }}
           >
@@ -102,7 +102,7 @@ export default function FilePreview({ filename, content }: FilePreviewProps) {
             ))}
           </div>
           {/* Content */}
-          <pre className="leading-6 text-xs flex-1" style={{ color: "var(--color-text)" }}>
+          <pre className="leading-6 text-xs flex-1" style={{ color: "#F8FAFC" }}>
             {content}
           </pre>
         </div>
