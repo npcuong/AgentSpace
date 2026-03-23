@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { Download, Loader2 } from "lucide-react";
 import type { AEOScore } from "@/lib/api";
 
 interface ScoreCardProps {
@@ -38,20 +40,62 @@ function CategoryBar({ label, value }: { label: string; value: number }) {
 }
 
 export default function ScoreCard({ score }: ScoreCardProps) {
+  const [isExporting, setIsExporting] = useState(false);
   const gradeColor = getGradeColor(score.grade);
   const circumference = 2 * Math.PI * 45;
   const offset = circumference - (score.total / 100) * circumference;
 
+  const downloadPDF = async () => {
+    if (typeof window === "undefined") return;
+    try {
+      setIsExporting(true);
+      const html2pdf = (await import("html2pdf.js")).default;
+      const element = document.getElementById("aeo-score-report");
+      if (!element) return;
+      
+      const opt = {
+        margin: 0.5,
+        filename: 'AgentSpace_AEO_Report.pdf',
+        image: { type: 'jpeg' as const, quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' as const }
+      };
+      
+      await html2pdf().set(opt).from(element).save();
+    } catch (e) {
+      console.error("Failed to generate PDF", e);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   return (
-    <div className="animate-fade-in-up">
+    <div className="animate-fade-in-up" id="aeo-score-report">
       <div
-        className="rounded-2xl p-6 sm:p-8"
+        className="rounded-2xl p-6 sm:p-8 relative"
         style={{
           background: "var(--color-surface)",
           border: "1px solid var(--color-border)",
         }}
       >
-        <div className="flex flex-col sm:flex-row items-center gap-8">
+        <button
+          onClick={downloadPDF}
+          disabled={isExporting}
+          className="absolute top-4 right-4 p-2 rounded-lg border transition-colors flex items-center gap-2 text-xs font-medium"
+          style={{
+            borderColor: "var(--color-border)",
+            color: "var(--color-text-muted)",
+            background: "var(--color-background)",
+            opacity: isExporting ? 0.7 : 1,
+            cursor: isExporting ? "not-allowed" : "pointer"
+          }}
+          title="Download PDF Report"
+        >
+          {isExporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Download className="w-4 h-4" />}
+          <span className="hidden sm:inline">Export PDF</span>
+        </button>
+
+        <div className="flex flex-col sm:flex-row items-center gap-8 mt-4 sm:mt-0">
           {/* Score circle */}
           <div className="relative w-36 h-36 flex-shrink-0">
             <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">

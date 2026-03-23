@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import ScanForm from "@/components/ScanForm";
 import ScanProgress from "@/components/ScanProgress";
 import ResultsPanel from "@/components/ResultsPanel";
+import { ScanHistory, saveToHistory } from "@/components/ScanHistory";
 import { startScan, getScanStatus, getScanResults } from "@/lib/api";
 import type { ScanStatus, ScanResult } from "@/lib/api";
 import { Zap, FileText, Shield, BarChart3, Github, ArrowRight } from "lucide-react";
@@ -47,6 +48,11 @@ export default function Home() {
             const results = await getScanResults(scanId);
             setScanResult(results);
             setIsScanning(false);
+            
+            if (results && results.score) {
+              saveToHistory(url, results.score.total);
+            }
+
             setTimeout(() => {
               resultsRef.current?.scrollIntoView({ behavior: "smooth" });
             }, 300);
@@ -157,6 +163,12 @@ export default function Home() {
           <div className="animate-fade-in-up animate-delay-300">
             <ScanForm onScan={handleScan} isLoading={isScanning} />
           </div>
+
+          {!isScanning && !scanResult && (
+            <ScanHistory onSelectUrl={(historyUrl) => {
+              handleScan(historyUrl);
+            }} />
+          )}
 
           {/* Error display */}
           {error && (

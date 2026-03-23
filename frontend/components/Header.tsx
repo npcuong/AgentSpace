@@ -2,6 +2,7 @@
 
 import { Activity, Github } from "lucide-react";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -33,11 +34,12 @@ export default function Header() {
         </Link>
 
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <a
-            href="https://github.com/aeo-platform"
+            href="https://github.com/npcuong/AgentSpace"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg cursor-pointer transition-all duration-200"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer duration-200"
             style={{
               color: "var(--color-text-muted)",
               border: "1px solid var(--color-border)",
