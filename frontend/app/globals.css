@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 :root {
   --color-primary: #3B82F6;
   --color-secondary: #F8FAFC;
-  --color-cta: #2563EB;
-  --color-background: #ffffff;
-  --color-surface: #F1F5F9;
-  --color-surface-hover: #E2E8F0;
+  --color-cta: #F97316;
+  --color-background: #F8FAFC;
+  --color-surface: #ffffff;
+  --color-surface-hover: #F1F5F9;
   --color-text: #0F172A;
-  --color-text-muted: #64748B;
+  --color-text-muted: #475569;
   --color-border: #E2E8F0;
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-error: #EF4444;
 
-  --font-heading: 'Fira Code', monospace;
-  --font-body: 'Fira Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -27,14 +27,14 @@
 
 .dark {
   --color-primary: #3B82F6;
-  --color-secondary: #1E293B;
-  --color-cta: #2563EB;
-  --color-background: #0F172A;
-  --color-surface: #1E293B;
-  --color-surface-hover: #263548;
-  --color-text: #F1F5F9;
-  --color-text-muted: #94A3B8;
-  --color-border: #334155;
+  --color-secondary: #09090B;
+  --color-cta: #F97316;
+  --color-background: #09090B;
+  --color-surface: #18181B;
+  --color-surface-hover: #27272A;
+  --color-text: #FAFAFA;
+  --color-text-muted: #A1A1AA;
+  --color-border: #27272A;
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-error: #EF4444;
@@ -60,20 +60,19 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* Animated gradient background */
+/* Minimalist mesh gradient background */
 .hero-gradient {
-  background: radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 50%),
+              radial-gradient(circle at bottom left, rgba(249, 115, 22, 0.05), transparent 50%);
 }
 
-/* Glow effect */
+/* Subtle glow */
 .glow {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2), 0 0 60px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.05);
 }
 
 .glow-sm {
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Score circle animation */

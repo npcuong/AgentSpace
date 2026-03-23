@@ -95,7 +95,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen hero-gradient">
+    <div className="min-h-screen minimal-hero">
       <Header />
 
       {/* Hero section */}
@@ -170,6 +170,21 @@ export default function Home() {
             }} />
           )}
 
+          {/* Social Proof */}
+          {!isScanning && !scanResult && (
+            <div className="animate-fade-in-up animate-delay-300 mt-16 mb-4 opacity-70">
+              <p className="text-xs font-semibold uppercase tracking-wider mb-6" style={{ color: "var(--color-text-muted)" }}>
+                As used by modern agentic teams
+              </p>
+              <div className="flex flex-wrap justify-center gap-8 sm:gap-14 items-center grayscale opacity-80">
+                <span className="font-bold text-xl" style={{ fontFamily: "var(--font-heading)" }}>Acme Corp</span>
+                <span className="font-bold text-xl" style={{ fontFamily: "var(--font-heading)" }}>GlobalShip</span>
+                <span className="font-bold text-xl" style={{ fontFamily: "var(--font-heading)" }}>Vertex AI</span>
+                <span className="font-bold text-xl" style={{ fontFamily: "var(--font-heading)" }}>Nexus</span>
+              </div>
+            </div>
+          )}
+
           {/* Error display */}
           {error && (
             <div
@@ -199,51 +214,49 @@ export default function Home() {
           </div>
         )}
 
-        {/* Features grid */}
+        {/* Features - Storytelling Flow */}
         {!scanResult && !isScanning && (
-          <div className="max-w-4xl mx-auto mt-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {FEATURES.map((feature, i) => {
-                const Icon = feature.icon;
-                return (
+          <div className="max-w-3xl mx-auto mt-24 space-y-6">
+            {FEATURES.map((feature, i) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={feature.title}
+                  className={`flex flex-col sm:flex-row items-start sm:items-center gap-6 p-8 rounded-2xl transition-all duration-300 animate-fade-in-up`}
+                  style={{
+                    background: "var(--color-surface)",
+                    border: "1px solid var(--color-border)",
+                    animationDelay: `${i * 100 + 400}ms`,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--color-primary)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--color-border)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
                   <div
-                    key={feature.title}
-                    className={`rounded-2xl p-6 transition-all duration-200 cursor-pointer animate-fade-in-up`}
-                    style={{
-                      background: "var(--color-surface)",
-                      border: "1px solid var(--color-border)",
-                      animationDelay: `${i * 100 + 400}ms`,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-primary)";
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-border)";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }}
+                    className="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center transition-colors duration-300"
+                    style={{ background: "rgba(59, 130, 246, 0.08)" }}
                   >
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                      style={{
-                        background: "rgba(59, 130, 246, 0.1)",
-                      }}
-                    >
-                      <Icon className="w-5 h-5" style={{ color: "var(--color-primary)" }} />
-                    </div>
+                    <Icon className="w-6 h-6" style={{ color: "var(--color-primary)" }} />
+                  </div>
+                  <div>
                     <h3
-                      className="text-base font-semibold mb-2"
-                      style={{ fontFamily: "var(--font-heading)" }}
+                      className="text-xl font-bold mb-2 transition-colors duration-300"
+                      style={{ fontFamily: "var(--font-heading)", color: "var(--color-text)" }}
                     >
                       {feature.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    <p className="text-base" style={{ color: "var(--color-text-muted)" }}>
                       {feature.desc}
                     </p>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
         )}
 
