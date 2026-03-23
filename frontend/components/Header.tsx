@@ -1,6 +1,7 @@
 "use client";
 
 import { Activity, Github } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -13,7 +14,7 @@ export default function Header() {
           border: "1px solid var(--color-border)",
         }}
       >
-        <a href="/" className="flex items-center gap-2 cursor-pointer group">
+        <Link href="/" className="flex items-center gap-2 cursor-pointer group">
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center"
             style={{ background: "var(--color-primary)" }}
@@ -29,7 +30,7 @@ export default function Header() {
           <span className="hidden sm:inline-block text-xs font-semibold ml-2 px-2 py-0.5 rounded-md" style={{ background: "rgba(59, 130, 246, 0.1)", color: "var(--color-primary)", border: "1px solid rgba(59, 130, 246, 0.2)" }}>
             AEO Scanner
           </span>
-        </a>
+        </Link>
 
         <div className="flex items-center gap-4">
           <a
